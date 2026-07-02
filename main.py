@@ -27,7 +27,7 @@ class Todo(TodoCreate):
 
 @app.get("/")
 def root():
-    return {"message": "Todo API is running"}
+    return {"message": "Todo API is running - v2!"}
 
 
 @app.get("/health")
