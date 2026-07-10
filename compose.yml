@@ -1,0 +1,49 @@
+services:
+
+  storage1:
+    build: .
+    hostname: storage1
+    # command: storage
+    networks:
+      dfs:
+        ipv4_address: 10.100.0.21
+    volumes:
+      - storage1:/var/lib/storage
+    mem_limit: 1g
+    cpus: 2
+
+  storage2:
+    build: .
+    hostname: storage2
+    # command: storage
+    networks:
+      dfs:
+        ipv4_address: 10.100.0.22
+    volumes:
+      - storage2:/var/lib/storage
+    mem_limit: 1g
+    cpus: 2
+
+  storage3:
+    build: .
+    hostname: storage3
+    # command: storage
+    networks:
+      dfs:
+        ipv4_address: 10.100.0.23
+    volumes:
+      - storage3:/var/lib/storage
+    mem_limit: 1g
+    cpus: 2
+
+networks:
+  dfs:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.100.0.0/24
+
+volumes:
+  storage1:
+  storage2:
+  storage3:
